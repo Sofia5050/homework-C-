@@ -1,0 +1,91 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+	int arr[8];
+	int sum = 0;
+	int evenSum = 0;
+	int posCount = 0;
+	int negCount = 0;
+	int countMore10 = 0;
+
+	// Ввести 8 чисел и найти сумму всех элементов
+	for (int i = 0; i < 8; i++) {
+		cout << "Введите число: ";
+		cin >> arr[i];
+		sum += arr[i];
+	}
+	cout << "Сумма: " << sum << endl;
+
+	// Найти максимальный и минимальный элемент
+	int maxValue = arr[0];
+	int minValue = arr[0];
+	for (int i = 1; i < 8; i++) {
+		if (arr[i] > maxValue) maxValue = arr[i];
+		if (arr[i] < minValue) minValue = arr[i];
+	}
+	cout << "Максимальное: " << maxValue << endl;
+	cout << "Минимальные: " << minValue << endl;
+
+	// Посчитать количество положительных и отрицательных чисел
+	for (int i = 0; i < 8; i++) {
+		if (arr[i] > 0) posCount++;
+		if (arr[i] < 0) negCount++;
+	}
+	cout << "Положительные: " << posCount << endl;
+	cout << "Отрицательное: " << negCount << endl;
+
+	// Найти сумму только четных элементов
+	for (int i = 0; i < 8; i++) {
+		if (arr[i] % 2 == 0) {
+			evenSum += arr[i];
+		}
+	}
+	cout << "Сумма четных чисел: " << evenSum << endl;
+
+	// Проверить, есть ли заданное число в массиве
+	int x;
+	bool found = false;
+	cout << "Введите число: ";
+	cin >> x;
+	for (int i = 0; i < 8; i++) {
+		if (arr[i] == x) {
+			found = true;
+			break;
+		}
+	}
+	if (found) cout << "Число есть в массиве" << endl;
+	else cout << "Числа нет в массиве" << endl;
+
+	// Вывести массив в обратном порядке
+	cout << "Обратный порядок: ";
+	for (int i = 7; i >= 0; i--) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+
+	// Заменить все отрицательные числа на 0
+	for (int i = 0; i < 8; i++) {
+		if (arr[i] < 0) {
+			arr[i] = 0;
+		}
+	}
+
+	cout << "Массив: ";
+	for (int i = 0; i < 8; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+
+	// Найти количество элементов, больших 10
+	for (int i = 0; i < 8; i++) {
+		if (arr[i] > 10) {
+			countMore10++;
+		}
+	}
+	cout << "Количество элементов > 10: " << countMore10 << endl;
+
+	return 0;
+}
