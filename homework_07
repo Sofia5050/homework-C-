@@ -1,0 +1,82 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+    // 1 задание
+
+int main() {
+    int arr[4][4];
+	srand(time(0)); 
+
+    for(int i = 0; i<4; i++){
+        for(int j = 0; j<4; j++){
+            arr[i][j] = rand() % 20 + 1; 
+            cout << arr[i][j] << "\t";
+        } 
+        cout<<endl;
+    } 
+
+    // 2 задание 
+    int totalSum = 0; 
+
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 4; j++){
+        totalSum += arr[i][j]; 
+        }
+    } 
+    cout << "Сумма всех элементов: "<< totalSum << endl;
+
+    // 3 задание 
+    int maxval = arr[0][0]; 
+    int minval = arr[0][0]; 
+
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 4; j++){
+        if (arr[i][j] > maxval) {
+        maxval = arr[i][j];  
+        } 
+        if (arr[i][j] < minval) {
+        minval = arr[i][j];  
+        }
+        }
+    } 
+    cout<< "Максимальное число: "<< maxval << endl; 
+    cout<< "Минимальное число: "<< minval << endl; 
+
+    // 4 задание 
+
+    for(int i = 0; i < 4; i++) {
+    int rowSum = 0; 
+
+    for(int j = 0; j < 4; j++) {
+        rowSum += arr[i][j]; 
+    }
+
+    cout << "Сумма строки " << i << " = " << rowSum << endl;
+    } 
+
+    // 5 задание 
+    int evenCount = 0;
+
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 4; j++) {
+        if (arr[i][j] % 2 == 0) {
+            evenCount++; 
+        }
+        }
+    }
+
+    cout << "Количество четных: " << evenCount << endl; 
+
+    // 6 задание 
+
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++) {
+        if (i == j) {
+            cout << arr[i][j] << " ";
+        }
+        }
+    }
+
+}
