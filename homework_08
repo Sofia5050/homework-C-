@@ -1,0 +1,131 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// 1
+void greetUser(string name){
+    cout << "Привет, " << name << "!" << endl;
+}
+
+// 2
+void showAge(int age){
+    cout << "Ваш возраст: " << age << endl;
+}
+
+// 3
+int cube(int x){
+    return x * x * x;
+}
+
+// 4
+int maxOfTwo(int a, int b){
+    if(a > b){
+        return a;
+    }
+    else{
+        return b;
+    }
+}
+
+// 5
+int minOfTwo(int a, int b){
+    if(a < b){
+        return a;
+    }
+    else{
+        return b;
+    }
+}
+
+// 6
+bool isPositive(int x){
+    return x > 0;
+}
+
+// 7
+bool isDivisibleByFive(int x){
+    return x % 5 == 0;
+}
+
+// 8
+int rectangleArea(int a, int b){
+    return a * b;
+}
+
+// 9
+int rectanglePerimeter(int a, int b){
+    return 2 * (a + b);
+}
+
+// 10 калькулятор
+int add(int a, int b){
+    return a + b;
+}
+
+int sub(int a, int b){
+    return a - b;
+}
+
+int mul(int a, int b){
+    return a * b;
+}
+
+int divi(int a, int b){
+    return a / b;
+}
+
+int main(){
+
+    string name;
+    cout << "Введите имя: ";
+    cin >> name;
+    greetUser(name);
+
+    int age;
+    cout << "Введите возраст: ";
+    cin >> age;
+    showAge(age);
+
+    int x;
+    cout << "Введите число для куба: ";
+    cin >> x;
+    cout << "Куб: " << cube(x) << endl;
+
+    int a, b;
+    cout << "Введите два числа: ";
+    cin >> a >> b;
+
+    cout << "Максимум: " << maxOfTwo(a, b) << endl;
+    cout << "Минимум: " << minOfTwo(a, b) << endl;
+
+    if(isPositive(a)){
+        cout << "Число положительное" << endl;
+    }
+    else{
+        cout << "Число не положительное" << endl;
+    }
+
+    if(isDivisibleByFive(a)){
+        cout << "Делится на 5" << endl;
+    }
+    else{
+        cout << "Не делится на 5" << endl;
+    }
+
+    cout << "Площадь: " << rectangleArea(a, b) << endl;
+    cout << "Периметр: " << rectanglePerimeter(a, b) << endl;
+
+    cout << "Сумма: " << add(a, b) << endl;
+    cout << "Разность: " << sub(a, b) << endl;
+    cout << "Произведение: " << mul(a, b) << endl;
+
+    if(b != 0){
+        cout << "Деление: " << divi(a, b) << endl;
+    }
+    else{
+        cout << "Деление на 0 невозможно" << endl;
+    }
+
+    return 0;
+}
