@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // Часть 1. Строки
+
+    // 1 задание
+    string str1;
+    cout << "Введите строку: ";
+    getline(cin, str1);
+    cout << str1.length() << endl;
+
+    // 2 задание
+    string str2;
+    cout << "Введите строку: ";
+    getline(cin, str2);
+    for (int i = 0; i < str2.length(); i++) {
+        cout << str2[i] << endl;
+    }
+
+    // 3 задание
+    string word;
+    cout << "Введите строку: ";
+    cin >> word;
+    word[0] = '*';
+    word[word.length() - 1] = '*';
+    cout << word << endl;
+
+    // 4 задание
+    string str4;
+    cout << "Введите строку для поиска Hello: ";
+    cin >> str4; 
+    if (str4.find("hello") != string::npos) {
+        cout << "Found" << endl;
+    }
+
+    // Часть 2. Указатели
+
+    // 1 задание
+    int x = 10;
+    int *p = &x;
+    cout << x << endl;
+    cout << &x << endl;
+    cout << *p << endl;
+
+    // 2 задание
+    int a = 50;
+    int *ptr = &a;
+    *ptr = 100;
+    cout << a << endl;
+
+    // 3 задание
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *p_arr = arr;
+    for (int i = 0; i < 5; i++) {
+        cout << *(p_arr + i) << endl;
+    }
+
+    // 4 задание
+    int num;
+    cout << "Введите число: ";
+    cin >> num;
+    int *p_num = &num;
+    *p_num = *p_num + 5;
+    cout << num << endl;
+
+    return 0;
+}
