@@ -1,0 +1,175 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    
+    // task 1
+    int n1;
+    cout << "Enter count: ";
+    cin >> n1;
+
+    if (n1 <= 0) {
+        cout << "Error" << endl;
+        return 0;
+    }
+
+    double* prices = new double[n1];
+    
+    for (int i = 0; i < n1; i++) {
+        cout << "Price " << i + 1 << ": ";
+        cin >> prices[i];
+    }
+
+    cout << "All prices: ";
+    for (int i = 0; i < n1; i++) {
+        cout << prices[i] << " ";
+    }
+    cout << endl;
+
+    double s1 = 0;
+    for (int i = 0; i < n1; i++) {
+        s1 += prices[i];
+    }
+
+    double avg1 = s1 / n1;
+
+    double maxP = prices[0];
+    double minP = prices[0];
+
+    for (int i = 1; i < n1; i++) {
+        if (prices[i] > maxP) {
+            maxP = prices[i];
+        }
+        if (prices[i] < minP) {
+            minP = prices[i];
+        }
+    }
+
+    int count1 = 0;
+    for (int i = 0; i < n1; i++) {
+        if (prices[i] > avg1) {
+            count1++;
+        }
+    }
+
+    cout << "Sum: " << s1 << endl;
+    cout << "Average: " << avg1 << endl;
+    cout << "Min: " << minP << endl;
+    cout << "Max: " << maxP << endl;
+    cout << "Above average: " << count1 << endl;
+
+    delete[] prices;
+    prices = nullptr;
+    cout << endl;
+
+
+    // task 2
+    int days;
+    cout << "Enter days: ";
+    cin >> days;
+
+    if (days <= 0) {
+        cout << "Error" << endl;
+        return 0;
+    }
+
+    int* temps = new int[days];
+
+    for (int i = 0; i < days; i++) {
+        cout << "Temp " << i + 1 << ": ";
+        cin >> temps[i];
+    }
+
+    cout << "All temps: ";
+    for (int i = 0; i < days; i++) {
+        cout << temps[i] << " ";
+    }
+    cout << endl;
+
+    double s2 = 0;
+    for (int i = 0; i < days; i++) {
+        s2 += temps[i];
+    }
+
+    double avg2 = s2 / days;
+
+    int maxT = temps[0];
+    int minT = temps[0];
+
+    for (int i = 1; i < days; i++) {
+        if (temps[i] > maxT) {
+            maxT = temps[i];
+        }
+        if (temps[i] < minT) {
+            minT = temps[i];
+        }
+    }
+
+    int count2 = 0;
+    int belowZero = 0;
+    for (int i = 0; i < days; i++) {
+        if (temps[i] > avg2) {
+            count2++;
+        }
+        if (temps[i] < 0) {
+            belowZero++;
+        }
+    }
+
+    cout << "Average: " << avg2 << endl;
+    cout << "Max: " << maxT << endl;
+    cout << "Min: " << minT << endl;
+    cout << "Above average: " << count2 << endl;
+    cout << "Below zero: " << belowZero << endl;
+
+    delete[] temps;
+    temps = nullptr;
+    cout << endl;
+
+
+    // task 3
+    int n3;
+    cout << "Enter size: ";
+    cin >> n3;
+
+    if (n3 <= 0) {
+        cout << "Error" << endl;
+        return 0;
+    }
+
+    int* arr = new int[n3];
+    int* res = new int[n3];
+
+    for (int i = 0; i < n3; i++) {
+        cout << "Element " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+
+    for (int i = 0; i < n3; i++) {
+        if (arr[i] % 2 == 0) {
+            res[i] = arr[i] * arr[i];
+        } else {
+            res[i] = arr[i] * arr[i] * arr[i];
+        }
+    }
+
+    cout << "Original: ";
+    for (int i = 0; i < n3; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Result: ";
+    for (int i = 0; i < n3; i++) {
+        cout << res[i] << " ";
+    }
+    cout << endl;
+
+    delete[] arr;
+    delete[] res;
+    arr = nullptr;
+    res = nullptr;
+
+    return 0;
+}
