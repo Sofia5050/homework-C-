@@ -1,0 +1,210 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+struct Book {
+    string title;
+    string author;
+    int year;
+    double price;
+};
+
+struct Product {
+    string name;
+    double price;
+    int quantity;
+};
+
+struct Student {
+    string name;
+    int age;
+    double grade;
+};
+
+struct User {
+    string login;
+    string password;
+    int age;
+};
+
+struct LibraryBook {
+    string title;
+    string author;
+    int year;
+    bool isAvailable;
+};
+
+int main() {
+    
+    // task 1
+    vector<Book> books;
+
+    books.push_back({"Book A", "Author 1", 2001, 500.0});
+    books.push_back({"Book B", "Author 2", 2005, 600.0});
+    books.push_back({"Book C", "Author 3", 2015, 700.0});
+    books.push_back({"Book D", "Author 4", 2020, 800.0});
+
+    cout << "All books:" << endl;
+    for (int i = 0; i < books.size(); i++) {
+        cout << books[i].title << " " << books[i].author << endl;
+    }
+
+    cout << "Size: " << books.size() << endl;
+    cout << "First: " << books.front().title << endl;
+    cout << "Last: " << books.back().title << endl;
+
+    books.pop_back();
+
+    cout << "New list:" << endl;
+    for (int i = 0; i < books.size(); i++) {
+        cout << books[i].title << endl;
+    }
+    cout << endl;
+
+
+    // task 2
+    vector<Product> products;
+
+    products.push_back({"Milk", 50.0, 10});
+    products.push_back({"Bread", 20.0, 0});
+    products.push_back({"Cheese", 150.0, 5});
+    products.push_back({"Meat", 300.0, 2});
+    products.push_back({"Water", 15.0, 20});
+
+    cout << "All products:" << endl;
+    for (int i = 0; i < products.size(); i++) {
+        cout << products[i].name << " " << products[i].price << endl;
+    }
+
+    cout << "In stock:" << endl;
+    for (int i = 0; i < products.size(); i++) {
+        if (products[i].quantity > 0) {
+            cout << products[i].name << " " << products[i].quantity << endl;
+        }
+    }
+
+    int maxP = 0;
+    for (int i = 1; i < products.size(); i++) {
+        if (products[i].price > products[maxP].price) {
+            maxP = i;
+        }
+    }
+    cout << "Max price: " << products[maxP].name << endl;
+
+    products.pop_back();
+    cout << "Empty: " << products.empty() << endl;
+    cout << endl;
+
+
+    // task 3
+    vector<Student> students;
+
+    students.push_back({"Ali", 18, 85.5});
+    students.push_back({"Amina", 19, 92.0});
+    students.push_back({"Dias", 20, 75.0});
+    students.push_back({"Ben", 18, 60.3});
+    students.push_back({"Anna", 19, 88.1});
+
+    cout << "All students:" << endl;
+    for (int i = 0; i < students.size(); i++) {
+        cout << students[i].name << " " << students[i].grade << endl;
+    }
+
+    cout << "Grade > 80:" << endl;
+    for (int i = 0; i < students.size(); i++) {
+        if (students[i].grade > 80) {
+            cout << students[i].name << endl;
+        }
+    }
+
+    double total = 0;
+    for (int i = 0; i < students.size(); i++) {
+        total += students[i].grade;
+    }
+    cout << "Average: " << total / students.size() << endl;
+
+    int bestS = 0;
+    for (int i = 1; i < students.size(); i++) {
+        if (students[i].grade > students[bestS].grade) {
+            bestS = i;
+        }
+    }
+    cout << "Best: " << students[bestS].name << endl;
+
+    students.clear();
+    cout << "Empty: " << students.empty() << endl;
+    cout << endl;
+
+
+    // task 4
+    vector<User> users;
+
+    users.push_back({"admin", "1234", 25});
+    users.push_back({"user1", "qwer", 20});
+    users.push_back({"dias99", "pass", 19});
+    users.push_back({"cat_lover", "meow", 22});
+
+    cout << "All users:" << endl;
+    for (int i = 0; i < users.size(); i++) {
+        cout << users[i].login << endl;
+    }
+
+    string search;
+    cout << "Enter login: ";
+    cin >> search;
+
+    bool found = false;
+    for (int i = 0; i < users.size(); i++) {
+        if (users[i].login == search) {
+            cout << "Found!" << endl;
+            cout << "Login: " << users[i].login << endl;
+            cout << "Age: " << users[i].age << endl;
+            found = true;
+            break;
+        }
+    }
+
+    if (found == false) {
+        cout << "Error" << endl;
+    }
+    cout << endl;
+
+
+    // task 5
+    vector<LibraryBook> library;
+
+    library.push_back({"Book 1", "Author A", 2005, true});
+    library.push_back({"Book 2", "Author B", 2012, false});
+    library.push_back({"Book 3", "Author C", 2018, true});
+    library.push_back({"Book 4", "Author D", 1999, true});
+    library.push_back({"Book 5", "Author E", 2022, false});
+
+    cout << "All library:" << endl;
+    for (int i = 0; i < library.size(); i++) {
+        cout << library[i].title << endl;
+    }
+
+    cout << "Available:" << endl;
+    for (int i = 0; i < library.size(); i++) {
+        if (library[i].isAvailable == true) {
+            cout << library[i].title << endl;
+        }
+    }
+
+    cout << "After 2010:" << endl;
+    for (int i = 0; i < library.size(); i++) {
+        if (library[i].year > 2010) {
+            cout << library[i].title << " " << library[i].year << endl;
+        }
+    }
+
+    cout << "Size: " << library.size() << endl;
+
+    library.pop_back();
+    library.clear();
+
+    cout << "Empty: " << library.empty() << endl;
+
+    return 0;
+}
