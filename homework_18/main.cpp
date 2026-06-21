@@ -1,13 +1,12 @@
-#include <iostream>
-#include "Music.h"
-#include "Video.h"
+#include "Circle.h"
+#include "Rectangle.h"
 
 int main() {
-    Music m;
-    Video v;
+    Circle c;
+    Rectangle r;
 
-    m.play();
-    v.play();
+    c.draw();
+    r.draw();
 
     return 0;
 }
